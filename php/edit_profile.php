@@ -77,7 +77,7 @@ $conn->close();
     <main>
         <section class="edit-profile">
             <h1>Edit Profile</h1>
-            <form action="edit_profile.php" method="post">
+            <form action="/atari-github/atari-github/php/edit_profile.php" method="post">
                 <label for="first-name">First Name:</label>
                 <input type="text" id="first-name" name="first-name" value="<?php echo htmlspecialchars($firstName); ?>" required><br>
                 <label for="last-name">Last Name:</label>
@@ -87,8 +87,12 @@ $conn->close();
                 <label for="password">New Password (leave blank to keep current password):</label>
                 <input type="password" id="password" name="password"><br>
                 <label for="confirm-password">Confirm New Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password"><br>
+                <input type="password" id="confirm-password" name="confirm-password"><br><br>
                 <input type="submit" value="Update Profile">
+            </form>
+
+            <form action="/atari-github/atari-github/php/delete_account.php" method="POST">
+                <input type="submit" value="Delete Account">
             </form>
         </section>
     </main>
