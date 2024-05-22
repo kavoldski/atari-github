@@ -35,7 +35,7 @@ $conn->close();
 <html>
 <head>
     <title>Dashboard - Atari Electronic Store</title>
-    <link rel="stylesheet" href="/css/dashboard-style.css">
+    <link rel="stylesheet" href="/atari-github/atari-github/style/dashboard-style.css">
 </head>
 <body>
     <header>
