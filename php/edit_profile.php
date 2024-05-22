@@ -60,13 +60,13 @@ $conn->close();
 <html>
 <head>
     <title>Edit Profile - Atari Electronic Store</title>
-    <link rel="stylesheet" href="/css/profile-style.css">
+    <link rel="stylesheet" href="/atari-github/atari-github/style/profile-style.css">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/atari-github/atari-github/php/dashboard.php">Dashboard</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#about-us">About</a></li>
                 <li><a href="#contact-us">Contact</a></li>
