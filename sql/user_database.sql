@@ -1,19 +1,116 @@
-CREATE DATABASE user_database;
-USE user_database;
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 22, 2024 at 09:41 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
 
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-CREATE TABLE orders (
-    order_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    product_name VARCHAR(100) NOT NULL,
-    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id)
-);
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `user_database`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_name` varchar(100) NOT NULL,
+  `order_date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `user_id`, `product_name`, `order_date`) VALUES
+(1, 1, 'ikan', '2024-05-22 07:38:52'),
+(13, 1, 'ikan', '2024-05-22 07:39:38'),
+(14, 1, 'ikan', '2024-05-22 07:40:26'),
+(15, 1, 'ikan', '2024-05-22 07:40:28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `created_at`) VALUES
+(1, 'ekmal', 'hakimi', 'ekmal@gmail.com', '$2y$10$pFtClbp88kJ68LojKWMbZ.GgP7pLEhPmEIB8EDqsHSfHBDnj4.CES', '2024-05-22 07:31:14');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
