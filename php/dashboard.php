@@ -52,8 +52,8 @@ $conn->close();
     </header>
     <main>
         <section class="dashboard">
-            <h1>Welcome, <?php echo htmlspecialchars($firstName); ?>!</h1>
-            <p>Your Email: <?php echo htmlspecialchars($email); ?></p>
+            <h1>Welcome, <?php echo ($firstName); ?>!</h1>
+            <p>Your Email: <?php echo ($email); ?></p>
             <h2>Your Orders</h2>
             <table>
                 <tr>
