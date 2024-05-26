@@ -1,0 +1,60 @@
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, clean font */
+    margin: 0;
+    background-color: #111; /* Dark background */
+    color: #eee; /* Light text for contrast */
+}
+
+/* Header Styling */
+header {
+    background-color: #000; /* Pure black header */
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none; /* Remove default bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Arrange links horizontally */
+    justify-content: flex-end; /* Align to the right */
+}
+
+nav li {
+    margin-left: 1.5rem;
+}
+
+nav a {
+    color: #eee;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+nav a:hover {
+    color: #999; /* Slightly lighter gray on hover */
+}
+
+/* Main Section Styling */
+main {
+    padding: 2rem;
+    text-align: center; /* Center content */
+}
+
+h1 {
+    font-size: 3rem;
+    color: #fff; /* Pure white for emphasis */
+    margin-bottom: 1rem;
+}
+
+p {
+    line-height: 1.6; /* Improve readability */
+    font-size: 1.1rem;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #222; /* Slightly lighter black */
+    padding: 1rem;
+    text-align: center;
+    color: #777; /* Dimmed text */
+}
