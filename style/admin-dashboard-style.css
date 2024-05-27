@@ -1,0 +1,97 @@
+/* admin-style.css */
+
+/* Basic Styling */
+body {
+    font-family: sans-serif; /* Choose a clear, professional font */
+    margin: 0;
+    background-color: #f4f4f4; /* Light background for better contrast */
+    color: #333; /* Dark text for readability */
+}
+
+header {
+    background-color: #007bff; /* Atari blue */
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+/* Overview Section */
+.overview {
+    display: flex;
+    justify-content: space-around; /* Evenly distribute summary boxes */
+    margin-bottom: 20px;
+}
+
+.overview div {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #007bff; /* Atari blue header */
+    color: white;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/* Responsiveness */
+@media (max-width: 768px) { 
+    .overview {
+        flex-direction: column; /* Stack boxes vertically on smaller screens */
+    }
+
+    nav ul li {
+        display: block; /* Display menu items on separate lines */
+        margin: 10px 0;
+    }
+}
