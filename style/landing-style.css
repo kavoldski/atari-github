@@ -1,23 +1,27 @@
-/* General Styling */
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, clean font */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background-color: #111; /* Dark background */
-    color: #eee; /* Light text for contrast */
+    background-image: url(/atari-github/atari-github/img/background-01.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #eee;
 }
 
-/* Header Styling */
+
 header {
-    background-color: #000; /* Pure black header */
+    background-color: #000;
     padding: 1rem;
 }
 
 nav ul {
-    list-style: none; /* Remove default bullet points */
+    list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Arrange links horizontally */
-    justify-content: flex-end; /* Align to the right */
+    display: flex;
+    justify-content: flex-end;
 }
 
 nav li {
@@ -27,34 +31,37 @@ nav li {
 nav a {
     color: #eee;
     text-decoration: none;
-    transition: color 0.3s ease; /* Smooth color change on hover */
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #999; /* Slightly lighter gray on hover */
+    color: #999;
 }
 
-/* Main Section Styling */
+
 main {
     padding: 2rem;
-    text-align: center; /* Center content */
+    text-align: center;
 }
 
 h1 {
     font-size: 3rem;
-    color: #fff; /* Pure white for emphasis */
+    color: #fff;
     margin-bottom: 1rem;
 }
 
 p {
-    line-height: 1.6; /* Improve readability */
+    line-height: 1.6;
     font-size: 1.1rem;
 }
 
-/* Footer Styling */
+
 footer {
-    background-color: #222; /* Slightly lighter black */
-    padding: 1rem;
+    background-color: #333;
+    color: white;
     text-align: center;
-    color: #777; /* Dimmed text */
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
