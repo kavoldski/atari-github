@@ -4,7 +4,7 @@ include 'db_connect.php';
 
 // Check if user is logged in AND is an admin
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') { 
-    header("Location: sign-in.html"); // Or a dedicated admin login
+    header("Location: sign-in.html"); 
     exit();
 }
 

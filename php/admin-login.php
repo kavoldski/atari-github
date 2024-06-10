@@ -25,16 +25,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->close(); 
 }
 ?>
-```**Key Changes:**
-
-- **Removed `password_verify`:** Since your passwords are not hashed, the `password_verify` function is not needed. The code now directly compares the user's input password (`$password`) with the password stored in the database (`$storedPassword`).
-
-
-**Important Security Note:**
-
-Storing passwords in plain text is extremely insecure.  I **strongly** recommend you implement password hashing immediately. Here's how you would do it with the `password_hash` and `password_verify` functions:
-
-1. **Hashing Passwords (When Creating/Updating Admin Users):**
-   ```php
-   $hashedPassword = password_hash($password, PASSWORD_DEFAULT); // Use a strong algorithm
-   // ... then store $hashedPassword in your database
