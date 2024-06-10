@@ -53,7 +53,7 @@ $conn->close();
                     <th>Product Name</th>
                     <th>Order Date</th>
                 </tr>
-                <?php foreach ($orders as $order): ?>
+                 <?php foreach ($orders as $order): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($order['order_id']); ?></td>
                         <td><?php echo htmlspecialchars($order['product_name']); ?></td>
@@ -64,7 +64,7 @@ $conn->close();
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 ATARI Electronic Store (Retribution Group)</p>
+        <p>&copy; 2024 ATARI Electronic Store (Retribution Group) THIS IS A DEMO</p>
     </footer>
 </body>
 </html>
