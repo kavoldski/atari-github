@@ -18,39 +18,36 @@ $stmt->bind_result($firstName, $lastName, $email);
 $stmt->fetch();
 $stmt->close();
 
-// Retrieve user's orders
-$orders = [];
-$stmt = $conn->prepare("SELECT order_id, product_name, order_date FROM orders WHERE user_id = ?");
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-while ($row = $result->fetch_assoc()) {
-    $orders[] = $row;
-}
-$stmt->close();
 $conn->close();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Atari Electronic Store</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="/atari-github/atari-github/style/dashboard-style.css">
+=======
+    <link rel="stylesheet" href="atari-github/atari-github/css/dashboard-style.css">
+>>>>>>> 63299fe6abdd209c89daff3f9e93b39ea9f77323
 </head>
 <body>
     <header>
+        <h1>Welcome, <?php echo htmlspecialchars($firstName); ?>!</h1>
         <nav>
             <ul>
                 <li><a href="/atari-github/atari-github/html/index.html">Home</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#about-us">About</a></li>
                 <li><a href="#contact-us">Contact</a></li>
-                <li><a href="edit_profile.php">Edit Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
     <main>
+<<<<<<< HEAD
         <section class="dashboard">
             <h1>Welcome, <?php echo ($firstName); ?>!</h1>
             <p>Your Email: <?php echo ($email); ?></p>
@@ -69,6 +66,17 @@ $conn->close();
                     </tr>
                 <?php endforeach; ?>
             </table>
+=======
+        <section class="payment">
+            <h2>Make a Payment</h2>
+            <form action="process_payment.php" method="POST">
+                <label for="order-id">Order ID:</label>
+                <input type="text" id="order-id" name="order_id" required><br>
+                <label for="amount">Amount:</label>
+                <input type="text" id="amount" name="amount" required><br>
+                <input type="submit" value="Pay">
+            </form>
+>>>>>>> 63299fe6abdd209c89daff3f9e93b39ea9f77323
         </section>
     </main>
     <footer>
