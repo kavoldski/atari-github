@@ -27,11 +27,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Atari Electronic Store</title>
-<<<<<<< HEAD
     <link rel="stylesheet" href="/atari-github/atari-github/style/dashboard-style.css">
-=======
-    <link rel="stylesheet" href="atari-github/atari-github/css/dashboard-style.css">
->>>>>>> 63299fe6abdd209c89daff3f9e93b39ea9f77323
 </head>
 <body>
     <header>
@@ -47,7 +43,6 @@ $conn->close();
         </nav>
     </header>
     <main>
-<<<<<<< HEAD
         <section class="dashboard">
             <h1>Welcome, <?php echo ($firstName); ?>!</h1>
             <p>Your Email: <?php echo ($email); ?></p>
@@ -66,17 +61,6 @@ $conn->close();
                     </tr>
                 <?php endforeach; ?>
             </table>
-=======
-        <section class="payment">
-            <h2>Make a Payment</h2>
-            <form action="process_payment.php" method="POST">
-                <label for="order-id">Order ID:</label>
-                <input type="text" id="order-id" name="order_id" required><br>
-                <label for="amount">Amount:</label>
-                <input type="text" id="amount" name="amount" required><br>
-                <input type="submit" value="Pay">
-            </form>
->>>>>>> 63299fe6abdd209c89daff3f9e93b39ea9f77323
         </section>
     </main>
     <footer>
