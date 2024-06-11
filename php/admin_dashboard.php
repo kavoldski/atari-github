@@ -4,19 +4,15 @@ include 'db_connect.php';
 
 // Check if user is logged in AND is an admin
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') { 
-    header("Location: kentut.html"); 
+    header("Location: /atari-github/atari-github/html/admin_dashboard.html"); 
     exit();
 }
-
-// (Similar user data retrieval as before, but you might want admin-specific info)
 
 // Retrieve summary statistics
 $totalOrders = 0;
 $totalRevenue = 0;
 $recentOrders = [];
 $topCustomers = [];
-
-// ... (SQL queries to fetch the data)
 
 // Assuming you fetched recent orders and top customers into the respective arrays
 $conn->close();
