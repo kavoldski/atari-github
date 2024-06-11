@@ -18,6 +18,21 @@ $stmt->bind_result($firstName, $lastName, $email);
 $stmt->fetch();
 $stmt->close();
 
+// Retrieve user orders
+$orders = array();
+$stmt = $conn->prepare("SELECT order_id, product_name, order_date FROM orders WHERE user_id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$stmt->bind_result($orderId, $productName, $orderDate);
+while ($stmt->fetch()) {
+    $orders[] = array(
+        'order_id' => $orderId,
+        'product_name' => $productName,
+        'order_date' => $orderDate
+    );
+}
+$stmt->close();
+
 $conn->close();
 ?>
 
@@ -44,8 +59,8 @@ $conn->close();
     </header>
     <main>
         <section class="dashboard">
-            <h1>Welcome, <?php echo ($firstName); ?>!</h1>
-            <p>Your Email: <?php echo ($email); ?></p>
+            <h1>Welcome, <?php echo htmlspecialchars($firstName); ?>!</h1>
+            <p>Your Email: <?php echo htmlspecialchars($email); ?></p>
             <h2>Your Orders</h2>
             <table>
                 <tr>
@@ -53,7 +68,7 @@ $conn->close();
                     <th>Product Name</th>
                     <th>Order Date</th>
                 </tr>
-                 <?php foreach ($orders as $order): ?>
+                <?php foreach ($orders as $order): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($order['order_id']); ?></td>
                         <td><?php echo htmlspecialchars($order['product_name']); ?></td>
