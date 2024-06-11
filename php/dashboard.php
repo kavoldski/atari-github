@@ -53,6 +53,7 @@ $conn->close();
                 <li><a href="#products">Products</a></li>
                 <li><a href="#about-us">About</a></li>
                 <li><a href="#contact-us">Contact</a></li>
+                <li><a href="/atari-github/atari-github/php/edit_profile.php">Edit Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
