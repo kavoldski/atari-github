@@ -1,79 +1,50 @@
+/* Style the login form as needed */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f5;
-    color: #333;
+    font-family: sans-serif;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    margin: 0;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    color: #0077b6;
-}
-
-main {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    box-sizing: border-box;
+    background-color: #f4f4f4;
 }
 
 .login-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
     text-align: center;
-}
-
-.login-container h2 {
     margin-bottom: 20px;
-    color: #0077b6;
 }
 
-.login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.input-group {
+    margin-bottom: 15px;
 }
 
-.login-form label {
-    text-align: left;
-    font-weight: bold;
+label {
+    display: block;
+    margin-bottom: 5px;
 }
 
-.login-form input[type="text"],
-.login-form input[type="password"] {
+input[type="text"],
+input[type="password"] {
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
+    box-sizing: border-box;
 }
 
-.login-form input[type="submit"] {
-    padding: 10px;
-    background-color: #0077b6;
+button {
+    background-color: #ff0000;
     color: white;
+    padding: 10px 15px;
     border: none;
     border-radius: 4px;
-    font-size: 16px;
     cursor: pointer;
 }
 
-.login-form input[type="submit"]:hover {
-    background-color: #005f8a;
-}
-
-footer {
-    margin-top: 20px;
-    text-align: center;
-    color: #777;
-    font-size: 14px;
-}
+/* Add more styles as needed */
