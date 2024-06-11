@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Atari Electronic Store</title>
+    <title>Admin Register - Atari Electronic Store</title>
     <link rel="stylesheet" href="/atari-github/atari-github/style/sign-up-style.css">
 </head>
 <body>
@@ -19,14 +19,16 @@
     </header>
     <main>
         <section class="sign-up">
-            <h1>Sign Up</h1>
-            <form action="/atari-github/atari-github/php/user-register.php" method="post">
+            <h1>Admin Registration</h1>
+            <form action="/atari-github/atari-github/php/admin-register.php" method="post">
                 <label for="first-name">First Name:</label>
                 <input type="text" id="first-name" name="first-name" required><br>
                 <label for="last-name">Last Name:</label>
                 <input type="text" id="last-name" name="last-name" required><br>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required><br>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required><br>
                 <label for="confirm-password">Confirm Password:</label>
