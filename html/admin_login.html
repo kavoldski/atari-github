@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - Atari Electronic Store</title>
-    <link rel="stylesheet" href="/atari-github/atari-github/style/admin-login-style.css">
+    <link rel="stylesheet" href="atari-github/atari-github/css/admin-style.css">
 </head>
 <body>
+    <header>
+        <h1>Admin Login</h1>
+    </header>
     <main>
-        <section class="login-container">
-            <h2>Admin Login</h2>
-            <form action="/atari-github/atari-github/php/admin_login.php" method="post" class="login-form">
+        <section>
+            <h2>Login</h2>
+            <form action="admin_login.php" method="post">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required><br>
+                <input type="text" id="username" name="username"><br>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br>
-                <input type="submit" value="Login" class="login-button">
+                <input type="password" id="password" name="password"><br>
+                <input type="submit" value="Login">
             </form>
         </section>
     </main>

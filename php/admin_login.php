@@ -2,39 +2,24 @@
 session_start();
 include 'db_connect.php';
 
-// Retrieve form data
-$username = $_POST['username'];
-$password = $_POST['password'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-//Validate inputs
-if (empty($username) || empty($password)) {
-    die("Username and password are required.");
-}
-
-//Retrieved admin data from the database based on username
-$stmt = $conn->prepare("SELECT password FROM admin WHERE username = ?");
-$stmt->bind_param("s", $username);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($hashedPassword);
-
-if ($stmt->num_rows == 1) {
+    $stmt = $conn->prepare("SELECT id, password FROM admins WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->bind_result($admin_id, $hashedPassword);
     $stmt->fetch();
 
-    //Verifying password
     if (password_verify($password, $hashedPassword)) {
-        $_SESSION['admin_username'] = $username;
-        header("Location: /atari-github/atari-github/php/admin_dashboard.php");
-        exit();
+        $_SESSION['admin_id'] = $admin_id;
+        header("Location: admin_dashboard.php");
+    } else {
+        echo "Invalid username or password!";
     }
-    else {
-        echo "Incorrect password.";
-    }
-} else {
-    echo "Username not found.";
+
+    $stmt->close();
+    $conn->close();
 }
-
-$stmt->close();
-$conn->close();
-
 ?>
