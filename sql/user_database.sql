@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2024 at 08:56 PM
+-- Generation Time: Jun 11, 2024 at 11:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -28,18 +28,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
+  `first_name` text NOT NULL,
+  `last_name` text NOT NULL,
   `email` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`email`, `username`, `password`) VALUES
-('kavoldski@admin.com', 'admin', 'admin123'),
-('kavoldski@admin.com', 'admin', 'admin123');
+INSERT INTO `admin` (`first_name`, `last_name`, `email`, `username`, `password`, `created_at`) VALUES
+('Cedric', 'Kavoldski', 'kavoldski@atari.com', 'kavoldski', '$2y$10$Hb0FEpvOoywLnGXqGyGv/eK8KnH6bFxdxgJzDpDbXlE3s3.8Y/6TW', '2024-06-11 08:50:44');
 
 -- --------------------------------------------------------
 
@@ -53,15 +55,6 @@ CREATE TABLE `orders` (
   `product_name` varchar(100) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`order_id`, `user_id`, `product_name`, `order_date`) VALUES
-(3, 4, 'Atari Gamepad', '2024-06-10 14:37:23'),
-(4, 4, 'Little Box', '2024-06-10 14:37:23'),
-(7, 5, 'Atari Club Member Card', '2024-06-10 14:38:47');
 
 -- --------------------------------------------------------
 
@@ -77,14 +70,6 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `created_at`) VALUES
-(4, 'Cedric', 'Kavoldski', 'kavoldski@atari.com', '$2y$10$3QZyfPcWPEGji4L.P0K2/u8fK4KdFbgyo72zZ93GE6tSKQ6gpx0aa', '2024-06-10 14:35:21'),
-(5, 'Jesse', 'Cornelius', 'jesse@atari.com', '$2y$10$ADqpa/CqjfjOOgKRJx5lrerLwvCAydMHcSxwP/c.zhZCr5A7M/4iG', '2024-06-10 14:35:42');
 
 --
 -- Indexes for dumped tables
@@ -118,7 +103,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
