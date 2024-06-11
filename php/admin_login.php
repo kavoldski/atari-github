@@ -6,8 +6,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Update the column name to match the actual table structure
-    $stmt = $conn->prepare("SELECT id, password FROM admin WHERE username = ?");
+    // Latest FETCH : POJI HENSEM
+    $stmt = $conn->prepare("SELECT email, password FROM admin WHERE username = ?");
     if ($stmt === false) {
         die("Error preparing the SQL statement: " . htmlspecialchars($conn->error));
     }
