@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $stmt = $conn->prepare("SELECT id, password FROM admins WHERE username = ?");
+    $stmt = $conn->prepare("SELECT password FROM admin WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->bind_result($admin_id, $hashedPassword);
