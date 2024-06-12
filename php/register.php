@@ -21,6 +21,8 @@ $stmt->bind_param("ssss", $firstName, $lastName, $email, $hashedPassword);
 
 if ($stmt->execute()) {
     echo "New record created successfully";
+    header("Location: /atari-github/atari-github/html/sign-in.html");
+    exit;
 } else {
     echo "Error: " . $stmt->error;
 }
