@@ -1,3 +1,19 @@
+<?php
+session_start();
+include 'db_connect.php';
+
+//check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: sign-in.html");
+    exit();
+}
+
+//Fetching the products from database
+$sql = "SELECT * FROM products";
+$result = $conn->query($sql);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,15 +40,23 @@
     <main>
         <section class="product-carousel">
             <div class="product-card" data-product-name="headphone">
-                <div class="product-image">
-                    <img src="/atari-github/atari-github/img/headphone.jpg" alt="headphone">
-                </div>
-                <div class="product-details">
-                    <h1>Headphone Atari</h1>
-                    <p class="product-description">Product description for Headphone Atari.</p>
-                    <p class="product-price">RM99.99</p>
-                    <button class="add-to-cart" data-product-id="1">Add to Cart</button>
-                </div>
+                <?php
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()){
+                        echo '<div class="product-image">';
+                            echo '<img src="/atari-github/atari-github/img/headphone.jpg" alt="headphone">';
+                        echo '</div>';
+                        echo '<div class="product-details">';
+                            echo '<h1>' . $row["producName"] . '<h1>';
+                            echo '<p class="product-description">' . $row["description"] . '</p>';
+                            echo '<p class="product-price">RM' . $row["price"] . '</p>';
+                            echo '<button class="add-to-cart" data-product-id="1">Add to Cart</button>';
+                        echo '</div>';
+                    }
+                }
+                    
+                    
+                ?>
             </div>
             <br>
             <div class="product-card" data-product-name="controller">
