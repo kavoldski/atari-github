@@ -2,12 +2,6 @@
 session_start();
 include 'db_connect.php';
 
-//check if user is logged in
-if (!isset($_SESSION['user_id'])) {
-    header("Location: sign-in.html");
-    exit();
-}
-
 //Fetching the products from database
 $sql = "SELECT * FROM products";
 $result = $conn->query($sql);
@@ -47,7 +41,7 @@ $result = $conn->query($sql);
                             echo '<img src="/atari-github/atari-github/img/headphone.jpg" alt="headphone">';
                         echo '</div>';
                         echo '<div class="product-details">';
-                            echo '<h1>' . $row["producName"] . '<h1>';
+                            echo '<h1>' . $row["productName"] . '<h1>';
                             echo '<p class="product-description">' . $row["description"] . '</p>';
                             echo '<p class="product-price">RM' . $row["price"] . '</p>';
                             echo '<button class="add-to-cart" data-product-id="1">Add to Cart</button>';
