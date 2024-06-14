@@ -24,7 +24,7 @@ $result = $conn->query($sql);
         <nav>
             <ul class="nav-list">
                 <li><a href="/atari-github/atari-github/html/index.html">Home</a></li>
-                <li><a href="/atari-github/atari-github/html/product.html">Product</a></li>
+                <li><a href="/atari-github/atari-github/php/product.php">Product</a></li>
                 <li><a href="/atari-github/atari-github/html/sign-in.html">Sign In</a></li>
                 <li><a href="/atari-github/atari-github/html/sign-up.html">Sign Up</a></li>
             </ul>
@@ -33,10 +33,10 @@ $result = $conn->query($sql);
 
     <main>
         <section class="product-carousel">
-            <div class="product-card" data-product-name="headphone">
-                <?php
+            <div class="product-card-container" data-product-name="headphone">
+            <?php  
                 if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()){
+                    while($row = $result->fetch_assoc()) {
                         echo '<div class="product-image">';
                             echo '<img src="/atari-github/atari-github/img/headphone.jpg" alt="headphone">';
                         echo '</div>';
@@ -45,26 +45,16 @@ $result = $conn->query($sql);
                             echo '<p class="product-description">' . $row["description"] . '</p>';
                             echo '<p class="product-price">RM' . $row["price"] . '</p>';
                             echo '<button class="add-to-cart" data-product-id="1">Add to Cart</button>';
-                        echo '</div>';
+                        echo '</div>';  
                     }
                 } else {
                     echo "No Products available at the moment.";
                 }
-                $conn->close();      
-                ?>
+            $conn->close();
+            ?>    
+                
             </div>
             <br>
-            <div class="product-card" data-product-name="controller">
-                <div class="product-image">
-                    <img src="/atari-github/atari-github/img/controller.jpg" alt="controller">
-                </div>
-                <div class="product-details">
-                    <h1>Controller Atari</h1>
-                    <p class="product-description">Product description for Controller Atari.</p>
-                    <p class="product-price">RM149.99</p>
-                    <button class="add-to-cart" data-product-id="2">Add to Cart</button>
-                </div>
-            </div>
         </section>
     </main>
 
