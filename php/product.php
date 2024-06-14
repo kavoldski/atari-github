@@ -47,9 +47,10 @@ $result = $conn->query($sql);
                             echo '<button class="add-to-cart" data-product-id="1">Add to Cart</button>';
                         echo '</div>';
                     }
+                } else {
+                    echo "No Products available at the moment.";
                 }
-                    
-                    
+                $conn->close();      
                 ?>
             </div>
             <br>
