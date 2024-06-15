@@ -33,7 +33,7 @@ $result = $conn->query($sql);
 
     <main>
         <section class="product-carousel">
-            <div class="product-card-container" data-product-name="headphone" style="position:right;">
+            <div class="product-card-container" data-product-name="headphone" style="position:fixed, right :0;">
             <?php  
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
