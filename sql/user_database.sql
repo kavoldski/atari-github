@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2024 at 08:56 PM
+-- Generation Time: Jun 17, 2024 at 04:21 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -28,18 +28,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
+  `first_name` text NOT NULL,
+  `last_name` text NOT NULL,
   `email` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`email`, `username`, `password`) VALUES
-('kavoldski@admin.com', 'admin', 'admin123'),
-('kavoldski@admin.com', 'admin', 'admin123');
+INSERT INTO `admin` (`first_name`, `last_name`, `email`, `username`, `password`, `created_at`) VALUES
+('Cedric', 'Kavoldski', 'kavoldski@atari.com', 'kavoldski', '$2y$10$Hb0FEpvOoywLnGXqGyGv/eK8KnH6bFxdxgJzDpDbXlE3s3.8Y/6TW', '2024-06-11 08:50:44'),
+('ADMIN', 'ADMIN', 'admin@admin.com', 'admin', 'admin123', '2024-06-12 15:50:37'),
+('ADMIN', 'ADMIN', 'admin@admin.com', 'admin', 'admin123', '2024-06-12 15:50:39');
 
 -- --------------------------------------------------------
 
@@ -59,9 +63,30 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `user_id`, `product_name`, `order_date`) VALUES
-(3, 4, 'Atari Gamepad', '2024-06-10 14:37:23'),
-(4, 4, 'Little Box', '2024-06-10 14:37:23'),
-(7, 5, 'Atari Club Member Card', '2024-06-10 14:38:47');
+(9, 22, 'Atari Headphone', '2024-06-15 16:32:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `product_id` int(11) NOT NULL,
+  `productName` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`product_id`, `productName`, `description`, `price`, `created_at`) VALUES
+(1, 'Atari Headphone', 'This is a headphone. This headphone is expensive because it was queried from the database.', 199.99, '2024-06-14 17:48:27'),
+(3, 'Chicken Atari', 'The second product is a chicken. Do you believe it?', 10.99, '2024-06-14 19:21:50'),
+(4, 'Mouse Atari', 'A futuristic design that will help you to click more faithfully.', 150.00, '2024-06-15 07:34:59');
 
 -- --------------------------------------------------------
 
@@ -83,8 +108,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `created_at`) VALUES
-(4, 'Cedric', 'Kavoldski', 'kavoldski@atari.com', '$2y$10$3QZyfPcWPEGji4L.P0K2/u8fK4KdFbgyo72zZ93GE6tSKQ6gpx0aa', '2024-06-10 14:35:21'),
-(5, 'Jesse', 'Cornelius', 'jesse@atari.com', '$2y$10$ADqpa/CqjfjOOgKRJx5lrerLwvCAydMHcSxwP/c.zhZCr5A7M/4iG', '2024-06-10 14:35:42');
+(13, 'Cedric', 'Hilary', 'kavoldski@user.com', '$2y$10$IcZDqemWptCBgRZFFbEPG.NAtoB4IzNNqTPiVHHPg/0D7qYTrASYy', '2024-06-11 09:33:40'),
+(21, 'Ekmal', 'Hakimi', 'ekmal@user.com', '$2y$10$EnY3SuGpSFIeEx.tDIFTuO23PoA3z0zjLCW6P5BiS3U/9bt9o6k4i', '2024-06-12 16:49:08'),
+(22, 'Nelson', 'Roland', 'roland@user.com', '$2y$10$nwu2Pbki88u.AX6fb/Xbzek5wnDiggWnKBGXsJbHBhQMcDrZNovda', '2024-06-15 15:48:03');
 
 --
 -- Indexes for dumped tables
@@ -96,6 +122,12 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `crea
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`product_id`);
 
 --
 -- Indexes for table `users`
@@ -112,13 +144,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables
