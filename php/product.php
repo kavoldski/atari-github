@@ -15,9 +15,6 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page - Atari Electronic Store</title>
     <link rel="stylesheet" href="/atari-github/atari-github/style/product-style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -40,6 +37,8 @@ $result = $conn->query($sql);
                         echo '<div class="product-image">';
                             echo '<img src="/atari-github/atari-github/img/headphone.jpg" alt="headphone">';
                         echo '</div>';
+
+                        //details of the products
                         echo '<div class="product-details">';
                             echo '<h1>' . $row["productName"] . '<h1>';
                             echo '<p class="product-description">' . $row["description"] . '</p>';
