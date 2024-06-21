@@ -18,10 +18,10 @@ $stmt->bind_result($firstName, $lastName, $email);
 $stmt->fetch();
 
 //Retrieve orders from database
-$stmt = $conn->("SELECT order_id, product_name, order_date FROM orders WHERE id = ?")
+$stmt = $conn->prepare("SELECT order_id, product_name, order_date FROM orders WHERE id = ?");
 $stmt->bind_result($order_id, $product_name, $order_date);
 $orders = array();
-while ($stmt->fetch()) {
+while ($stmt->fetch()){
     $orders[] = array(
         'order_id' => $order_id,
         'product_name' => $product_name,
