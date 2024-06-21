@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2024 at 04:21 AM
+-- Generation Time: Jun 21, 2024 at 01:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -58,13 +58,6 @@ CREATE TABLE `orders` (
   `order_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`order_id`, `user_id`, `product_name`, `order_date`) VALUES
-(9, 22, 'Atari Headphone', '2024-06-15 16:32:53');
-
 -- --------------------------------------------------------
 
 --
@@ -74,6 +67,7 @@ INSERT INTO `orders` (`order_id`, `user_id`, `product_name`, `order_date`) VALUE
 CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `productName` varchar(255) NOT NULL,
+  `product_img` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
@@ -83,10 +77,11 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `productName`, `description`, `price`, `created_at`) VALUES
-(1, 'Atari Headphone', 'This is a headphone. This headphone is expensive because it was queried from the database.', 199.99, '2024-06-14 17:48:27'),
-(3, 'Chicken Atari', 'The second product is a chicken. Do you believe it?', 10.99, '2024-06-14 19:21:50'),
-(4, 'Mouse Atari', 'A futuristic design that will help you to click more faithfully.', 150.00, '2024-06-15 07:34:59');
+INSERT INTO `products` (`product_id`, `productName`, `product_img`, `description`, `price`, `created_at`) VALUES
+(1, 'Atari Headphone', '', 'This is a headphone. This headphone is expensive because it was queried from the database.', 199.99, '2024-06-14 17:48:27'),
+(3, 'Chicken Atari', '', 'The second product is a chicken. Do you believe it?', 10.99, '2024-06-14 19:21:50'),
+(4, 'Mouse Atari', '', 'A futuristic design that will help you to click more faithfully.', 150.00, '2024-06-15 07:34:59'),
+(5, 'Atari Keyboard', '', 'This is a keyboard.', 0.00, '2024-06-20 12:06:58');
 
 -- --------------------------------------------------------
 
@@ -108,9 +103,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `created_at`) VALUES
-(13, 'Cedric', 'Hilary', 'kavoldski@user.com', '$2y$10$IcZDqemWptCBgRZFFbEPG.NAtoB4IzNNqTPiVHHPg/0D7qYTrASYy', '2024-06-11 09:33:40'),
-(21, 'Ekmal', 'Hakimi', 'ekmal@user.com', '$2y$10$EnY3SuGpSFIeEx.tDIFTuO23PoA3z0zjLCW6P5BiS3U/9bt9o6k4i', '2024-06-12 16:49:08'),
-(22, 'Nelson', 'Roland', 'roland@user.com', '$2y$10$nwu2Pbki88u.AX6fb/Xbzek5wnDiggWnKBGXsJbHBhQMcDrZNovda', '2024-06-15 15:48:03');
+(23, 'Cedric', 'Hilary ', 'cedric@user.com', '$2y$10$4z1XloFRoLYxj7djKzjo4eQbyeGeQqZOlHcpZ2VnKPoi3jYQ0T6eu', '2024-06-21 03:47:11');
 
 --
 -- Indexes for dumped tables
@@ -150,13 +143,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Constraints for dumped tables
