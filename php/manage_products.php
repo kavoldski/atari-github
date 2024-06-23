@@ -70,7 +70,7 @@ $conn->close();
                         <td><?php echo htmlspecialchars($product['product_id']); ?></td>
                         <td><img src="<?php echo htmlspecialchars($product['product_img']); ?>" alt="Product Image" width="50"></td> <td><?php echo htmlspecialchars($product['productName']); ?></td>
                         <td><?php echo htmlspecialchars($product['description']); ?></td>
-                        <td>$<?php echo htmlspecialchars($product['price']); ?></td>
+                        <td>RM <?php echo htmlspecialchars($product['price']); ?></td>
                         <td><?php echo htmlspecialchars($product['created_at']); ?></td>
                         <td>
                             <a href="edit_product.php?product_id=<?php echo $product['product_id']; ?>">Edit</a>
