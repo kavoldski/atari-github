@@ -1,0 +1,175 @@
+/* product_registered-style.css */
+
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa; 
+    color: #212529; 
+    line-height: 1.6; 
+}
+
+/* Header */
+header {
+    background-color: #000; 
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+/* Navigation */
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Enable flexbox layout */
+    justify-content: space-between; /* Maintains spacing between the list and form */
+    align-items: center;  /* Vertically center items within the nav */
+}
+
+.nav-list form {
+    display: flex; /* Align search input and button horizontally */
+    align-items: center;
+    margin-left: auto; /* Push the form to the right */
+}
+
+.nav-list input[type="text"],
+.nav-list button {
+    padding: 0.8rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.nav-list li {
+    margin: 0 1rem; /* Adjusted spacing */
+}
+
+.nav-list a {
+    color: #fff; 
+    text-decoration: none;
+    font-weight: 500;  
+    transition: color 0.3s ease; 
+}
+
+.nav-list a:hover {
+    color: #ff2020;
+}
+
+/* Welcome Message */
+.nav-list li:first-child { 
+    font-weight: bold;
+}
+
+/* Cart and Account Links */
+.nav-list a[href="view_cart.php"],
+.nav-list a[href="my_account.php"] {
+    background-color: #000;
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+}
+
+/* Main Content */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.product-carousel {
+    display: flex;
+    overflow-x: auto;  
+}
+
+.product-card-container {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Product Cards */
+.product-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    min-width: 250px; 
+    flex: 0 0 auto; 
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.product-details h1 {
+    font-size: 1.3rem;
+    font-weight: 600; 
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.product-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #e74c3c; 
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.add-to-cart:hover {
+    background-color: #444; 
+}
+
+/* Checkout Button */
+#checkout-button {
+    background-color: #000; 
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 500px; 
+}
+
+#checkout-button:hover {
+    background-color: #444; 
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0px;
+    width: 100%;
+}
+

@@ -57,7 +57,7 @@ $conn->close();
         <nav>
             <ul>
                 <li><a href="/atari-github/atari-github/html/index.html">Home</a></li>
-                <li><a href="/atari-github/atari-github/php/product.php">Products</a></li>
+                <li><a href="/atari-github/atari-github/php/product_registered.php">Products</a></li>
                 <li><a href="/atari-github/atari-github/php/edit_profile.php">Edit Profile</a></li>
                 <li><a href="#about-us">About</a></li>
                 <li><a href="#contact-us">Contact</a></li>
