@@ -19,16 +19,27 @@ $stmt->fetch();
 
 //Retrieve orders from database
 $stmt = $conn->prepare("SELECT order_id, product_name, order_date FROM orders WHERE id = ?");
-$stmt->bind_result($order_id, $product_name, $order_date);
-$orders = array();
-while ($stmt->fetch()){
-    $orders[] = array(
-        'order_id' => $order_id,
-        'product_name' => $product_name,
-        'order_date' => $order_date
-    );
+$orders = [];
+
+if ($stmt) { // Check if statement preparation is successful
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $stmt->bind_result($order_id, $product_name, $order_date);
+
+    while ($stmt->fetch()) {
+        $orders[] = [
+            'order_id' => $order_id,
+            'product_name' => $product_name,
+            'order_date' => $order_date
+        ];
+    }
+
+    $stmt->close();
+} else { // Handle query preparation error
+    // Display error message (or log for debugging)
+    echo "Error preparing statement: " . $conn->error; 
 }
-$stmt->close();
+
 $conn->close();
 ?>
 
@@ -47,6 +58,7 @@ $conn->close();
             <ul>
                 <li><a href="/atari-github/atari-github/html/index.html">Home</a></li>
                 <li><a href="/atari-github/atari-github/php/product.php">Products</a></li>
+                <li><a href="/atari-github/atari-github/php/edit_profile.php">Edit Profile</a></li>
                 <li><a href="#about-us">About</a></li>
                 <li><a href="#contact-us">Contact</a></li>
                 <li><a href="logout.php">Logout</a></li>
