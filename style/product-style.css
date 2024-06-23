@@ -1,22 +1,28 @@
-/* General Styles */
+/* product-style.css */
+
+/* General Styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f8f9fa; /* Lightened background for better contrast */
+    color: #212529; /* Darker text for better readability */
+    line-height: 1.6; /* Improved line-height for readability */
 }
 
+/* Header */
 header {
-    background-color: #000;
+    background-color: #000; /* Black header for a bold look */
     padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Navigation */
 .nav-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centered navigation */
 }
 
 .nav-list li {
@@ -24,15 +30,17 @@ header {
 }
 
 .nav-list a {
-    color: #ffffff;
+    color: #fff; 
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-weight: 500;  
+    transition: color 0.3s ease; /* Smooth transition on hover */
 }
 
 .nav-list a:hover {
     color: #ff2020;
 }
 
+/* Main Content */
 main {
     display: flex;
     flex-direction: column;
@@ -40,38 +48,45 @@ main {
     padding: 2rem;
 }
 
-
-/*Product cards and container styles*/
+.product-carousel {
+    display: flex;
+    overflow-x: auto;  /* Allow horizontal scrolling if needed */
+}
 
 .product-card-container {
-    background-color: #bbff00;
-    display: inline-flex;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    display: flex;
+    gap: 1rem;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    min-width: 250px; /* Ensure minimum width for each card */
+    flex: 0 0 auto;  /* Allow cards to shrink and grow to fit content */
 }
 
 .product-image img {
-align-items: center;
-height: 100%;
-width: 100%;
+    max-width: 100%; 
+    height: auto;
+    margin-bottom: 1rem;
 }
 
 .product-details {
-    align-items: center;
+    display: flex;
     flex-direction: column;
+    align-items: center; 
 }
 
 .product-details h1 {
-    font-weight: 100;
-    font-style: normal;
     font-size: 1.3rem;
+    font-weight: 600; /* Bolder font weight for the title */
     margin-bottom: 0.5rem;
     color: #333;
-    text-align: center;
 }
 
 .product-description {
-    text-align: center;
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1rem;
@@ -81,9 +96,10 @@ width: 100%;
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    color: #e74c3c;
+    color: #e74c3c; /* Red color for the price */
 }
 
+/* Add to Cart Button */
 .add-to-cart {
     background-color: #000;
     color: #fff;
@@ -96,11 +112,12 @@ width: 100%;
 }
 
 .add-to-cart:hover {
-    background-color: #444;
+    background-color: #444; /* Darker shade on hover */
 }
 
+/* Checkout Button */
 #checkout-button {
-    background-color: #000;
+    background-color: #000; 
     color: #fff;
     border: none;
     padding: 1rem 2rem;
@@ -111,10 +128,13 @@ width: 100%;
     margin-top: 2rem;
     margin-bottom: 2rem;
     width: 100%;
-    max-width: 500px;
-    text-align: center;
+    max-width: 500px; /* Limit the maximum width */
+}
+#checkout-button:hover {
+    background-color: #444;
 }
 
+/* Footer */
 footer {
     background-color: #333;
     color: white;
