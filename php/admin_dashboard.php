@@ -37,7 +37,7 @@ $totalRevenue = $totalRevenueResult->fetch_assoc()['total'];
         <nav>
             <ul>
                 <li><a href="admin_products.php">Manage Products</a></li>
-                <li><a href="admin_users.php">Manage Users</a></li>
+                <li><a href="/atari-github/atari-github/php/manage_users.php">Manage Users</a></li>
                 <li><a href="admin_orders.php">View All Orders</a></li>
                 <li><a href="/atari-github/atari-github/php/admin_logout.php">Logout</a></li>
             </ul>

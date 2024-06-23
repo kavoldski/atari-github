@@ -1,0 +1,104 @@
+/* admin-style.css */
+
+/* Basic Styling */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* Header */
+header {
+    background-color: #001871; /* Darker blue for a more premium feel */
+    color: #fff;
+    padding: 1.2rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #f8f9fa;
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+}
+
+h1, h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 600; /* Slightly bolder headings for emphasis */
+}
+
+section {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    width: 450px; /* Adjust width as needed */
+    margin: 0 auto; /* Center the form */
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.5rem;
+    font-weight: 500; /* Slightly bolder labels for clarity */
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+input[type="submit"] {
+    background-color: #001871;
+    color: #fff;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #000d56; /* Darker shade on hover */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #343a40;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

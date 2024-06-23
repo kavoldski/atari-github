@@ -1,0 +1,92 @@
+/* admin-style.css */
+
+/* Basic Styling */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #f8f9fa; /* Light background for better contrast */
+    color: #212529; /* Dark text for readability */
+}
+
+/* Header */
+header {
+    background-color: #001871; /* Darker blue for a more premium feel */
+    color: #fff;
+    padding: 1.2rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #f8f9fa;
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+}
+
+h1, h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+th, td {
+    border: 1px solid #dee2e6; /* Light gray border */
+    padding: 1rem;
+    text-align: left;
+}
+
+th {
+    background-color: #001871; /* Darker blue for headers */
+    color: #fff;
+}
+
+/* Action Links */
+td a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #343a40;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
