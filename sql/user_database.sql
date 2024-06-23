@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2024 at 01:28 PM
+-- Generation Time: Jun 24, 2024 at 01:29 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
+  `admin_id` int(11) NOT NULL,
   `first_name` text NOT NULL,
   `last_name` text NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -40,10 +41,8 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`first_name`, `last_name`, `email`, `username`, `password`, `created_at`) VALUES
-('Cedric', 'Kavoldski', 'kavoldski@atari.com', 'kavoldski', '$2y$10$Hb0FEpvOoywLnGXqGyGv/eK8KnH6bFxdxgJzDpDbXlE3s3.8Y/6TW', '2024-06-11 08:50:44'),
-('ADMIN', 'ADMIN', 'admin@admin.com', 'admin', 'admin123', '2024-06-12 15:50:37'),
-('ADMIN', 'ADMIN', 'admin@admin.com', 'admin', 'admin123', '2024-06-12 15:50:39');
+INSERT INTO `admin` (`admin_id`, `first_name`, `last_name`, `email`, `username`, `password`, `created_at`) VALUES
+(1, 'Cedric', 'Admin', 'cedric@admin.com', 'admin', '$2y$10$OFYvBiOUnflo5wlBzQ7Guu1P6e7VUdKzzUYmNFEEHiFP7e5x3Vjh6', '2024-06-23 18:05:36');
 
 -- --------------------------------------------------------
 
@@ -55,8 +54,17 @@ CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `product_name` varchar(100) NOT NULL,
+  `total_price` decimal(10,2) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `user_id`, `product_name`, `total_price`, `order_date`) VALUES
+(10, 23, 'Atari Chicken', 10.00, '2024-05-30 16:00:00'),
+(11, 23, 'Atari Keyboard', 20.00, '2024-06-19 16:00:00');
 
 -- --------------------------------------------------------
 
@@ -78,10 +86,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `productName`, `product_img`, `description`, `price`, `created_at`) VALUES
-(1, 'Atari Headphone', '', 'This is a headphone. This headphone is expensive because it was queried from the database.', 199.99, '2024-06-14 17:48:27'),
-(3, 'Chicken Atari', '', 'The second product is a chicken. Do you believe it?', 10.99, '2024-06-14 19:21:50'),
-(4, 'Mouse Atari', '', 'A futuristic design that will help you to click more faithfully.', 150.00, '2024-06-15 07:34:59'),
-(5, 'Atari Keyboard', '', 'This is a keyboard.', 0.00, '2024-06-20 12:06:58');
+(6, 'Atari Cap', 'uploads/Profile Picture.jpg', 'This is a cap, and it\'s no cap.', 200.00, '2024-06-23 23:19:10');
 
 -- --------------------------------------------------------
 
@@ -103,11 +108,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `created_at`) VALUES
-(23, 'Cedric', 'Hilary ', 'cedric@user.com', '$2y$10$4z1XloFRoLYxj7djKzjo4eQbyeGeQqZOlHcpZ2VnKPoi3jYQ0T6eu', '2024-06-21 03:47:11');
+(23, 'Cedric', 'Hilary', 'kavoldski@gmail.com', '$2y$10$1lpopUrHaxwKMZdx6zDy2OvOacCzr2VMq/ZnERu.6hsiGjTCm3c/G', '2024-06-21 03:47:11');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `orders`
@@ -134,16 +145,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
