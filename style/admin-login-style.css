@@ -1,50 +1,89 @@
-/* Style the login form as needed */
+/* admin-login-style.css */
+
+/* Basic Styling */
 body {
-    font-family: sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #f8f9fa; 
+    color: #212529; 
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
+    flex-direction: column; /* Align items vertically */
+    min-height: 100vh; /* Ensure footer stays at bottom */
 }
 
-.login-container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Header */
+header {
+    background-color: #001871;
+    color: #fff;
+    padding: 1.2rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
+    margin: 0; /* Remove default margin for better spacing */
+    font-size: 2.5rem;
 }
 
-.input-group {
-    margin-bottom: 15px;
+/* Main Content */
+main {
+    flex: 1; /* Allow main content to take up available space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+section {
+    background-color: #fff;
+    padding: 3rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    width: 400px; /* Limit width for better visual focus */
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
 }
 
 input[type="text"],
 input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    padding: 1rem;
+    border: 1px solid #ced4da; /* Bootstrap-inspired border */
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
 }
 
-button {
-    background-color: #ff0000;
-    color: white;
-    padding: 10px 15px;
+input[type="submit"] {
+    background-color: #001871;
+    color: #fff;
+    padding: 1rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Add more styles as needed */
+input[type="submit"]:hover {
+    background-color: #000d56;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #343a40;
+    color: #fff;
+    width: 100%;
+}
