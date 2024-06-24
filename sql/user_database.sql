@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2024 at 01:29 AM
+-- Generation Time: Jun 24, 2024 at 12:04 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -55,7 +55,7 @@ CREATE TABLE `orders` (
   `user_id` int(11) NOT NULL,
   `product_name` varchar(100) NOT NULL,
   `total_price` decimal(10,2) NOT NULL,
-  `order_date` timestamp NOT NULL DEFAULT current_timestamp()
+  `order_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -63,8 +63,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `user_id`, `product_name`, `total_price`, `order_date`) VALUES
-(10, 23, 'Atari Chicken', 10.00, '2024-05-30 16:00:00'),
-(11, 23, 'Atari Keyboard', 20.00, '2024-06-19 16:00:00');
+(12, 24, 'Atari Chicken', 199.99, '2024-06-06');
 
 -- --------------------------------------------------------
 
@@ -86,7 +85,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `productName`, `product_img`, `description`, `price`, `created_at`) VALUES
-(6, 'Atari Cap', 'uploads/Profile Picture.jpg', 'This is a cap, and it\'s no cap.', 200.00, '2024-06-23 23:19:10');
+(9, 'Atari Controller v2.0', 'uploads/sample.jpg', 'Still the same, but different.', 299.99, '2024-06-24 00:37:23'),
+(10, 'Atari Controller Alpha', 'uploads/sample.jpg', 'Different. Built different.', 350.00, '2024-06-24 00:38:24'),
+(11, 'Atari Omega', 'uploads/sample.jpg', 'This is the latest product.', 180.00, '2024-06-24 01:44:25');
 
 -- --------------------------------------------------------
 
@@ -108,7 +109,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `created_at`) VALUES
-(23, 'Cedric', 'Hilary', 'kavoldski@gmail.com', '$2y$10$1lpopUrHaxwKMZdx6zDy2OvOacCzr2VMq/ZnERu.6hsiGjTCm3c/G', '2024-06-21 03:47:11');
+(24, 'User', 'Atari', 'user@atari.com', '$2y$10$C.vaYWdSFGQ4UQ7G7DloNOnXFcFsKnXJhxG3tySsRx42Gg1HEB2yy', '2024-06-23 23:33:04'),
+(25, 'Ekmal', 'Hakimi', 'ikmal@atari.com', '$2y$10$h6gPCKjHTNGJ2BbAeHzr3u16thUhLASxV1bAR6i021IZUBtvyB3km', '2024-06-24 01:41:20'),
+(26, 'nisha', 'Corn', 'jesse@atari.com', '$2y$10$cs8HOeOThglPltxaJGu0mOyYVTrjSv0XTF65DhE1hLZ8OL9ApASjS', '2024-06-24 02:21:21');
 
 --
 -- Indexes for dumped tables
@@ -154,19 +157,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
