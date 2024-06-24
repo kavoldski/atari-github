@@ -21,42 +21,23 @@ header {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Enable flexbox layout */
-    justify-content: space-between; /* Maintains spacing between the list and form */
-    align-items: center;  /* Vertically center items within the nav */
-}
-
-.nav-list form {
-    display: flex; /* Align search input and button horizontally */
-    align-items: center;
-    margin-left: auto; /* Push the form to the right */
-}
-
-.nav-list input[type="text"],
-.nav-list button {
-    padding: 0.8rem;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center; /* Centered navigation */
 }
 
 .nav-list li {
-    margin: 0 1rem; /* Adjusted spacing */
+    margin-left: 1.5rem;
 }
 
 .nav-list a {
     color: #fff; 
     text-decoration: none;
     font-weight: 500;  
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease; /* Smooth transition on hover */
 }
 
 .nav-list a:hover {
     color: #ff2020;
-}
-
-/* Welcome Message */
-.nav-list li:first-child { 
-    font-weight: bold;
 }
 
 /* Cart and Account Links */
@@ -92,7 +73,8 @@ main {
     padding: 1rem;
     border-radius: 0.5rem;
     text-align: center;
-    min-width: 250px; 
+    min-width: 250px;
+    max-width: 300px; 
     flex: 0 0 auto; 
 }
 

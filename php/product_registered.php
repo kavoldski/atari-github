@@ -15,7 +15,6 @@ $result = $conn->query($sql);
 
 // Check if the user is logged in
 $loggedIn = isset($_SESSION['user_id']);
-$userName = $loggedIn ? $_SESSION['first_name'] : "Guest"; 
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +32,6 @@ $userName = $loggedIn ? $_SESSION['first_name'] : "Guest";
                 <li><a href="index.html">Home</a></li>
                 <li><a href="product_registered.php">Product</a></li>
                 <?php if ($loggedIn): ?>
-                    <li>Welcome, <?php echo $userName; ?>!</li>
                     <li><a href="view_cart.php">View Cart</a></li> 
                     <li><a href="my_account.php">My Account</a></li>
                     <li><a href="logout.php">Logout</a></li>
@@ -52,7 +50,7 @@ $userName = $loggedIn ? $_SESSION['first_name'] : "Guest";
 
     <main>
         <section class="product-carousel">
-            <div class="product-card-container">
+            <div class="product-card-container" id="product-container">
                 <?php
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
@@ -93,6 +91,47 @@ $userName = $loggedIn ? $_SESSION['first_name'] : "Guest";
     <footer>
         <p>&copy; 2024 ATARI Electronic Store (Retribution Group)</p>
     </footer>
-    <script src="js/cart.js"></script> 
+    <script>
+        // JavaScript Code (combined PHP and JS):
+
+        // Fetch product data (already available from PHP)
+        const products = <?php echo json_encode($products); ?>;
+        
+        // Get the product container
+        const productContainer = document.getElementById("product-container");
+
+        // Function to render a single product card
+        function createProductCard(product) {
+            return `
+                <div class="product-card" data-product-id="${product.product_id}">
+                    <div class="product-image">
+                        <img src="${product.product_img}" alt="${product.productName}">
+                    </div>
+                    <div class="product-details">
+                        <h1>${product.productName}</h1>
+                        <p class="product-description">${product.description}</p>
+                        <p class="product-price">RM ${product.price}</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render product cards
+        products.forEach(product => {
+            productContainer.innerHTML += createProductCard(product);
+        });
+
+        // Event listener for Add to Cart buttons (using event delegation)
+        productContainer.addEventListener('click', function(event) {
+            if (event.target.classList.contains('add-to-cart')) {
+                const productId = event.target.closest('.product-card').dataset.productId; // Find the closest parent with the data attribute
+                addToCart(productId);
+            }
+        });
+
+        // ... (your other cart.js functions: addToCart, updateCartDisplay, etc.) 
+    </script>
+    <script src="js/cart.js"></script>
 </body>
 </html>
