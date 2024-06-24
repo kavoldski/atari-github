@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$user_id = $_SESSION['user_id'];
+$users_id = $_SESSION['user_id'];
 
 // Retrieve user information
 $stmt = $conn->prepare("SELECT first_name, last_name, email FROM users WHERE id = ?");
