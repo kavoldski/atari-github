@@ -1,4 +1,4 @@
-/* admin-login-style.css */
+/* admin-style.css */
 
 /* Basic Styling */
 body {
@@ -7,66 +7,82 @@ body {
     margin: 0;
     background-color: #f8f9fa; 
     color: #212529; 
-    display: flex;
-    flex-direction: column; /* Align items vertically */
-    min-height: 100vh; /* Ensure footer stays at bottom */
 }
 
 /* Header */
 header {
-    background-color: #001871;
+    background-color: #001871; 
     color: #fff;
     padding: 1.2rem 0;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    margin: 0; /* Remove default margin for better spacing */
-    font-size: 2.5rem;
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #f8f9fa; 
 }
 
 /* Main Content */
 main {
-    flex: 1; /* Allow main content to take up available space */
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 2rem;
 }
 
+h1, h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 600; 
+}
+
+/* Section Styling */
 section {
     background-color: #fff;
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    width: 400px; /* Limit width for better visual focus */
+    width: 450px; /* Adjust width as needed */
+    margin: 0 auto; /* Center the form */
 }
 
-h2 {
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
+/* Form Styling */
 form {
     display: flex;
-    flex-direction: column; /* Stack form elements vertically */
+    flex-direction: column;
 }
 
 label {
     margin-bottom: 0.5rem;
+    font-weight: 500; 
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="number"],
+input[type="file"], /* Style for the file input */
+textarea {
     padding: 1rem;
-    border: 1px solid #ced4da; /* Bootstrap-inspired border */
+    border: 1px solid #ced4da; 
     border-radius: 0.25rem;
     margin-bottom: 1rem;
 }
 
 input[type="submit"] {
-    background-color: #001871;
+    background-color: #001871; 
     color: #fff;
     padding: 1rem;
     border: none;
@@ -76,14 +92,16 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #000d56;
+    background-color: #000d56; 
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 1rem 0;
-    background-color: #343a40;
+    background-color: #343a40; 
     color: #fff;
+    position: fixed;
+    bottom: 0;
     width: 100%;
 }

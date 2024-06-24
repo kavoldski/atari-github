@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$user_id = $_SESSION['user_id'];
+$users_id = $_SESSION['user_id'];
 
 // Retrieve user information
 $stmt = $conn->prepare("SELECT first_name, last_name, email FROM users WHERE id = ?");
@@ -16,7 +16,29 @@ $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $stmt->bind_result($firstName, $lastName, $email);
 $stmt->fetch();
-$stmt->close();
+
+//Retrieve orders from database
+$stmt = $conn->prepare("SELECT order_id, product_name, order_date FROM orders WHERE id = ?");
+$orders = [];
+
+if ($stmt) { // Check if statement preparation is successful
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $stmt->bind_result($order_id, $product_name, $order_date);
+
+    while ($stmt->fetch()) {
+        $orders[] = [
+            'order_id' => $order_id,
+            'product_name' => $product_name,
+            'order_date' => $order_date
+        ];
+    }
+
+    $stmt->close();
+} else { // Handle query preparation error
+    // Display error message (or log for debugging)
+    echo "Error preparing statement: " . $conn->error; 
+}
 
 $conn->close();
 ?>
@@ -35,7 +57,8 @@ $conn->close();
         <nav>
             <ul>
                 <li><a href="/atari-github/atari-github/html/index.html">Home</a></li>
-                <li><a href="#products">Products</a></li>
+                <li><a href="/atari-github/atari-github/php/product_registered.php">Products</a></li>
+                <li><a href="/atari-github/atari-github/php/edit_profile.php">Edit Profile</a></li>
                 <li><a href="#about-us">About</a></li>
                 <li><a href="#contact-us">Contact</a></li>
                 <li><a href="logout.php">Logout</a></li>
@@ -44,7 +67,7 @@ $conn->close();
     </header>
     <main>
         <section class="dashboard">
-            <h1>Welcome, <?php echo ($firstName); ?>!</h1>
+            <h1>Welcome, <?php echo ($firstName . ' ' . $lastName); ?>!</h1>
             <p>Your Email: <?php echo ($email); ?></p>
             <h2>Your Orders</h2>
             <table>
@@ -53,7 +76,7 @@ $conn->close();
                     <th>Product Name</th>
                     <th>Order Date</th>
                 </tr>
-                 <?php foreach ($orders as $order): ?>
+                 <?php foreach ($orders as $order):?>
                     <tr>
                         <td><?php echo htmlspecialchars($order['order_id']); ?></td>
                         <td><?php echo htmlspecialchars($order['product_name']); ?></td>
@@ -64,7 +87,7 @@ $conn->close();
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 ATARI Electronic Store (Retribution Group) THIS IS A DEMO</p>
+        <p>&copy; 2024 ATARI Electronic Store (Retribution Group)</p>
     </footer>
 </body>
 </html>

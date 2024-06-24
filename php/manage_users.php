@@ -26,7 +26,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users - Atari Electronic Store</title>
-    <link rel="stylesheet" href="atari-github/atari-github/css/admin-style.css">
+    <link rel="stylesheet" href="/atari-github/atari-github/style/manage-user-style.css">
 </head>
 <body>
     <header>
@@ -36,7 +36,7 @@ $conn->close();
                 <li><a href="admin_dashboard.php">Dashboard</a></li>
                 <li><a href="manage_users.php">Manage Users</a></li>
                 <li><a href="manage_orders.php">Manage Orders</a></li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="admin_logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>

@@ -1,19 +1,19 @@
-/* product-style.css */
+/* product_registered-style.css */
 
 /* General Styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background-color: #f8f9fa; /* Lightened background for better contrast */
-    color: #212529; /* Darker text for better readability */
-    line-height: 1.6; /* Improved line-height for readability */
+    background-color: #f8f9fa; 
+    color: #212529; 
+    line-height: 1.6; 
 }
 
 /* Header */
 header {
-    background-color: #000; /* Black header for a bold look */
+    background-color: #000; 
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 /* Navigation */
@@ -40,6 +40,15 @@ header {
     color: #ff2020;
 }
 
+/* Cart and Account Links */
+.nav-list a[href="view_cart.php"],
+.nav-list a[href="my_account.php"] {
+    background-color: #000;
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+}
+
 /* Main Content */
 main {
     display: flex;
@@ -50,7 +59,7 @@ main {
 
 .product-carousel {
     display: flex;
-    overflow-x: auto;  /* Allow horizontal scrolling if needed */
+    overflow-x: auto;  
 }
 
 .product-card-container {
@@ -58,17 +67,19 @@ main {
     gap: 1rem;
 }
 
+/* Product Cards */
 .product-card {
     border: 1px solid #ddd;
     padding: 1rem;
     border-radius: 0.5rem;
     text-align: center;
-    min-width: 250px; /* Ensure minimum width for each card */
-    flex: 0 0 auto;  /* Allow cards to shrink and grow to fit content */
+    min-width: 250px;
+    max-width: 300px; 
+    flex: 0 0 auto; 
 }
 
-.product-image img {
-    max-width: 100%; 
+.product-card img {
+    max-width: 100%;
     height: auto;
     margin-bottom: 1rem;
 }
@@ -81,7 +92,7 @@ main {
 
 .product-details h1 {
     font-size: 1.3rem;
-    font-weight: 600; /* Bolder font weight for the title */
+    font-weight: 600; 
     margin-bottom: 0.5rem;
     color: #333;
 }
@@ -96,7 +107,7 @@ main {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    color: #e74c3c; /* Red color for the price */
+    color: #e74c3c; 
 }
 
 /* Add to Cart Button */
@@ -112,7 +123,7 @@ main {
 }
 
 .add-to-cart:hover {
-    background-color: #444; /* Darker shade on hover */
+    background-color: #444; 
 }
 
 /* Checkout Button */
@@ -128,10 +139,11 @@ main {
     margin-top: 2rem;
     margin-bottom: 2rem;
     width: 100%;
-    max-width: 500px; /* Limit the maximum width */
+    max-width: 500px; 
 }
+
 #checkout-button:hover {
-    background-color: #444;
+    background-color: #444; 
 }
 
 /* Footer */
@@ -142,3 +154,4 @@ footer {
     padding: 10px 0px;
     width: 100%;
 }
+
